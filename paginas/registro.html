@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="../styles/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lilita+One&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Averia Libre', sans-serif;
+            color: #333;
+        }
+        .main-content {
+            width: 100%;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-size: cover;
+        }
+        .form-container {
+            margin-top: 400px;
+            align-self: center;
+            padding: 20px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .form-container textarea {
+            resize: none;
+            font-family: 'Blur Bold', sans-serif;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #555;
+        }
+        .vertical-menu {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 200px; 
+            z-index: 999;
+        }
+        .vertical-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100vh;
+        }
+        .vertical-menu li {
+            text-align: left;
+        }
+        .vertical-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 15.5px;
+            transition: all 0.3s ease;
+        }
+        .vertical-menu a:hover {
+            font-size: 18px;
+            font-weight: bold;
+            transform: translateX(10px);
+        }
+        footer {
+            width: 100%;
+            color: white;
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .footer-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .footer-center .social-icon {
+            height: 24px;
+            margin: 0 10px;
+            transition: transform 0.3s, font-weight 0.3s;
+        }
+        .footer-center .social-icon:hover {
+            transform: scale(1.2);
+        }
+        .footer-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .footer-bar hr {
+            width: 90%;
+            border: 1px solid white;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .qr-section {
+            display: flex;
+            align-items: center;
+        }
+        .qr-section span {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        .qr-section .qr-code {
+            height: 50px;
+        }
+        .info-section {
+            text-align: right;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="vertical-menu">
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="paginas/hostales.html">HOSTALES</a></li>
+            <li><a href="registro.html">REGISTRO</a></li>
+            <li><a href="paginas/resumen.html">RESUMEN DE EJERCICIOS</a></li>
+        </ul>
+    </nav>
+    <div class="video-background">
+        <video id="background-video" autoplay loop muted playsinline>
+            <source id="video-source" src="Media/sunset.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="main-content">
+        <div class="form-container">
+            <h1>Registro</h1>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+                
+                <label for="comentarios">Comentarios:</label>
+                <textarea id="comentarios" name="comentarios" rows="5" cols="60" required></textarea>
+                
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-center">
+            <a href="https://www.instagram.com" target="_blank"><img src="../Media/instagrampng.png" alt="Instagram" class="social-icon"></a>
+            <a href="https://www.facebook.com" target="_blank"><img src="../Media/youtubepng.png" alt="Facebook" class="social-icon"></a>
+            <a href="https://www.whatsapp.com" target="_blank"><img src="../Media/whatsapppng.png" alt="WhatsApp" class="social-icon"></a>
+            <div class="footer-tiempo" id="ww_b59d272f96d14" v='1.3' loc='id' a='{"t":"responsive","lang":"es","sl_lpl":1,"ids":["wl831"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#FFFFFF00","cl_font":"rgba(255,255,255,1)","cl_cloud":"#d4d4d4","cl_persp":"#2196F3","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","sl_tof":"3","cl_odd":"#00000000"}'><a href="https://weatherwidget.org/" id="ww_b59d272f96d14_u" target="_blank">Weather widget for website</a></div><script async src="https://app2.weatherwidget.org/js/?id=ww_b59d272f96d14"></script>
+        </div>
+        <div class="footer-bar">
+            <hr>
+        </div>
+        <div class="footer-bottom">
+            <div class="qr-section">
+                <span>Escanéame aquí:</span>
+                <img src="../Media/qr.png" alt="QR Code" class="qr-code">
+            </div>
+            <div class="info-section">
+                <br>
+                <span>Autor: Pablo Rodríguez Benítez</span><br>
+                <span>Fecha: <span id="date"></span></span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script>
+    function actualizarReloj() {
+        const reloj = document.getElementById('reloj');
+        const ahora = new Date();
+        const horas = ahora.getHours().toString().padStart(2, '0');
+        const minutos = ahora.getMinutes().toString().padStart(2, '0');
+        const segundos = ahora.getSeconds().toString().padStart(2, '0');
+        reloj.textContent = `${horas}:${minutos}:${segundos}`;
+    }
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj(); // Ejecutar inmediatamente para evitar el primer retraso
+
+    // Get current date
+    var now = new Date();
+    var day = now.getDate();
+    var month = now.getMonth() + 1; // Los meses en JavaScript son de 0 a 11
+    var year = now.getFullYear();
+    
+    // Format date as DD/MM/YYYY
+    var formattedDate = day.toString().padStart(2, '0') + '/' + month.toString().padStart(2, '0') + '/' + year;
+    
+    // Insert date into HTML
+    document.getElementById("date").innerHTML = formattedDate;
+    </script>
+</html>

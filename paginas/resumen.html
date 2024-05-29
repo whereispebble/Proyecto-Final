@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen Hover</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%; /* Ajusta el tamaño según sea necesario */
+            max-width: 800px; /* Tamaño máximo para pantallas grandes */
+            height: auto;
+        }
+
+        .main-image, .image-container::after {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.5s ease;
+        }
+
+        .image-container:hover .main-image {
+            opacity: 0;
+        }
+
+        .image-container::after {
+            content: "";
+            background-image: url('../Media/imagen2.webp'); /* Imagen que aparece al hacer hover */
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .image-container:hover::after {
+            opacity: 1;
+        }
+
+        .image-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2vw; /* Tamaño de fuente relativo a la ventana */
+            text-align: center;
+            padding: 0 10px; /* Añade padding para mejor lectura en pantallas pequeñas */
+        }
+
+        @media (max-width: 600px) {
+            .image-title {
+                font-size: 4vw; /* Tamaño de fuente más grande para pantallas pequeñas */
+            }
+        }
+
+        .button-container {
+            margin-top: 30px; /* Espacio de 30 píxeles entre la imagen y el botón */
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="../Media/imagen1.webp" alt="Imagen Principal" class="main-image">
+        <h1 class="image-title">¿NOS VEMOS EN SEPTIEMBRE?</h1>
+    </div>
+    <div class="button-container">
+        <button onclick="volverInicio()">Volver</button>
+    </div>
+
+    <script>
+        function volverInicio() {
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>
+
